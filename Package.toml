@@ -1,0 +1,12 @@
+# Package Configurations
+[package]
+	# Package Name
+	name =					"tmcz"
+	# Package Type: 'executable' (normal package) | 'library' (doesn't run - useful for code library)
+	type =					"executable"
+	# Whether to force the Custom Map Script to do NOT load
+	force_no_map_script =	false
+	# Asset Packs Requirements
+	assets_requirements = [
+		
+	]

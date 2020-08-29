@@ -1,0 +1,89 @@
+#hp{
+  position: absolute;
+  bottom:8;
+  left:8;
+  border-radius: 8px;
+  box-shadow: 2px 2px #666;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: #ccc;
+  border-radius:0px 18px 0 18px;
+  box-shadow: 2px 2px #666;
+}
+
+#myBar {
+  width: 1%;
+  height: 18px;
+  background-color: #4caf50;
+  border-radius:0px 18px 0 18px;
+}
+
+#money{
+  position: absolute;
+  bottom:8;
+  right:8;
+  border-radius: 8px;
+  box-shadow: 2px 2px #666;
+}
+
+.btn {
+  border: 2px solid black;
+  color: black;
+  padding: 8px 22px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Green */
+.success {
+  border-color: #4CAF50;
+  color: white;
+  background-color: #4CAF50;
+}
+
+
+/* Blue */
+.info {
+  border-color: #2196F3;
+  color: dodgerblue
+}
+
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+
+/* Orange */
+.warning {
+  border-color: #ff9800;
+  color: orange;
+}
+
+.warning:hover {
+  background: #ff9800;
+  color: white;
+}
+
+/* Red */
+.danger {
+  border-color: #f44336;
+  color: red
+}
+
+.danger:hover {
+  background: #f44336;
+  color: white;
+}
+
+/* Gray */
+.default {
+  border-color: #e7e7e7;
+  color: black;
+}
+
+.default:hover {
+  background: #e7e7e7;
+}
