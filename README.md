@@ -1,4 +1,4 @@
-# Too Many Catz
+# WIP: Too Many Catz
 Modular Tower Defense gamemode to use with Nanos World Framework
 
 ## Maps
