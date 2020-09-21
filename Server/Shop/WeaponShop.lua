@@ -27,10 +27,10 @@ function handleBuy(player, option, idx)
   elseif option == "Catz" then
     TmpzWeapons.CatzTier(player:GetControlledCharacter():GetLocation(), Rotator(), idx)
   else
-    Events:CallRemote("showMessage", player, {"Uuuh, how can I say that, something went wrong"})
+    Events:CallRemote("showMessage", player, {"Uuuh", "how can I say that", "something went"," wrong"})
     return 
   end
-  Events:CallRemote("showMessage", player, {"Nice!"})
+  Events:CallRemote("showMessage", player, {"Success", "", "", ""})
 end
 
 

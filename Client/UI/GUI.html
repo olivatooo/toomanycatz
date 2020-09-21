@@ -20,12 +20,7 @@
     </div>
 
     <button id="bigPopup" class="btn success" style="max-width: 300px">
-      <div id="popUpTitle">
-        <i
-          class="fas fa-info-circle"
-          aria-hidden="true"
-          style="margin-left: 0"
-        ></i>
+      <div id="popUpTitle"><i class="fas fa-cat" aria-hidden="true" style="position: fixed;left: 12px;"></i>
         This is the title
       </div>
       <div id="popUpSubtitle" style="font-size: 14px">This is the subtitle</div>
@@ -36,6 +31,8 @@
         scratch leg; meow for can opener to feed me for cough furball into food
         bowl then scratch owner for a new one cat jumps
       </div>
+      <br>
+      <div id="popUpFooter" style="font-size: 16px">This is the subtitle</div>
     </button>
 
     <div class="leftBottomInfo">
@@ -47,15 +44,11 @@
     </div>
     <script>
       var popUp = document.getElementById("bigPopup");
-      var money = document.getElementById("money"); 
-      var enemies = document.getElementById("stat");
-      var life = document.getElementById("life");
-      var bullets = document.getElementById("bullets");
       var popUpTitle = document.getElementById("popUpTitle");
       var popUpSubtitle = document.getElementById("popUpSubtitle");
       var popUpInfo = document.getElementById("popUpInfo");
       var popUpFooter = document.getElementById("popUpFooter");
-      popUp.style.visibility = "hidden";
+      // popUp.style.visibility = "hidden";
       // Received event
       // Title, Subtitle, Information, Footer
       Events.on("showPopup", function (showPop, t, s, i, f) {
@@ -69,17 +62,25 @@
           popUp.style.visibility = "hidden";
         }
       });
-      Events.on("setLife", function(nLife){ 
-          life.innerHTML = nLife;
+
+      var life = document.getElementById("life");
+      Events.on("setLife", function (nLife) {
+        life.innerHTML = nLife;
       });
-      Events.on("setMoney", function(nMoney){ 
-          money.innerHTML = nMoney;
+
+      var money = document.getElementById("money");
+      Events.on("setMoney", function (nMoney) {
+        money.innerHTML = nMoney;
       });
-      Events.on("setEnemies", function(nEnemies){ 
-          enemies.innerHTML = nEnemies;
+
+      var enemies = document.getElementById("stat");
+      Events.on("setEnemies", function (nEnemies) {
+        enemies.innerHTML = nEnemies;
       });
-      Events.on("setBullets", function(b){ 
-          bullets.innerHTML = b;
+
+      var bullets = document.getElementById("bullets");
+      Events.on("setBullets", function (b) {
+        bullets.innerHTML = b;
       });
     </script>
   </body>

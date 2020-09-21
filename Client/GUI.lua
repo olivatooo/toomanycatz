@@ -10,12 +10,9 @@ tmczUI = WebUI(
 Events:on("EnterShop", function(shopOption) 
   isShopping = true
   shoppingOption = shopOption
-  Events:Call("showMessage", {tostring(shopOption)})
+  Events:Call("showMessage", {"Store", tostring(shopOption), "", prices[shopOption][option]})
 end)
 
-Events:on("showMessage", function(msg)
-  tmczUI:CallEvent("showPopup", {true, msg})
-end)
 
 Events:on("LeaveShop", function() 
   isShopping = false
@@ -30,5 +27,34 @@ end)
 
 Package:on("Unload", function()
   tmczUI:Destroy()
+end)
+
+Events:on("showMessage", function(title, subtitle, info, footer)
+  -- Title, subtitle, info, footer
+  tmczUI:CallEvent("showPopup", {true, title, subtitle, info, footer})
+end)
+
+
+Events:on("setLife", function(msg)
+  -- Life (number only)
+  tmczUI:CallEvent("setLife", {true, msg})
+end)
+
+
+Events:on("setMoney", function(msg)
+  -- Money (number only)
+  tmczUI:CallEvent("setMoney", {true, msg})
+end)
+
+
+Events:on("setEnemies", function(msg)
+  -- Enemies (alives / total)
+  tmczUI:CallEvent("setEnemies", {true, msg})
+end)
+
+
+Events:on("setBullets", function(msg)
+  -- Bullets ( actual / total )
+  tmczUI:CallEvent("setBullets", {true, msg})
 end)
 
