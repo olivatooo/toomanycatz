@@ -1,36 +1,86 @@
 <html>
-    <head>
-       <link rel="stylesheet" href="main.css"> 
-    </head>
-    
-    <body>
-      <button id="hp" class="btn success">HP : 100</button>
-      <button id="money" class="btn success">$ 16000</button>
-      <div id="myProgress">
-        <div id="myBar"></div>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+
+  <body>
+    <button id="hp" class="btn success">
+      <i class="fas fa-heartbeat"></i>&nbsp;
+      <span id="life">0</span>
+    </button>
+
+    <div id="waveStatus">
+      <div id="status">
+        <button id="" class="btn success">
+          <i class="fas fa-angry"></i>&nbsp;
+          <span id="stat">0/0</span>
+        </button>
       </div>
-      <script>
-        var i = 0;
-        function move() {
-          if (i == 0) {
-            i = 1;
-            var elem = document.getElementById("myBar");
-            var width = 1;
-            var id = setInterval(frame, 500);
-            function frame() {
-              if (width >= 100) {
-                clearInterval(id);
-                i = 0;
-              } else {
-                width++;
-                elem.style.width = width + "%";
-              }
-            }
-          }
+    </div>
+
+    <button id="bigPopup" class="btn success" style="max-width: 300px">
+      <div id="popUpTitle">
+        <i
+          class="fas fa-info-circle"
+          aria-hidden="true"
+          style="margin-left: 0"
+        ></i>
+        This is the title
+      </div>
+      <div id="popUpSubtitle" style="font-size: 14px">This is the subtitle</div>
+      <br />
+
+      <div id="popUpInfo" style="font-size: 12px">
+        Pretend you want to go out but then don't leave fur on owners clothes
+        scratch leg; meow for can opener to feed me for cough furball into food
+        bowl then scratch owner for a new one cat jumps
+      </div>
+    </button>
+
+    <div class="leftBottomInfo">
+      <button id="bullets" class="btn success">&nbsp;0/0</button>
+      <button id="money" class="btn success">
+        <i class="fas fa-money-bill-wave"></i>&nbsp;
+        <span id="money">0</span>
+      </button>
+    </div>
+    <script>
+      var popUp = document.getElementById("bigPopup");
+      var money = document.getElementById("money"); 
+      var enemies = document.getElementById("stat");
+      var life = document.getElementById("life");
+      var bullets = document.getElementById("bullets");
+      var popUpTitle = document.getElementById("popUpTitle");
+      var popUpSubtitle = document.getElementById("popUpSubtitle");
+      var popUpInfo = document.getElementById("popUpInfo");
+      var popUpFooter = document.getElementById("popUpFooter");
+      popUp.style.visibility = "hidden";
+      // Received event
+      // Title, Subtitle, Information, Footer
+      Events.on("showPopup", function (showPop, t, s, i, f) {
+        if (showPop == true) {
+          popUp.style.visibility = "visible";
+          popUpInfo.innerHTML = i;
+          popUpSubtitle.innerHTML = s;
+          popUpFooter.innerHTML = f;
+          popUpTitle.innerHTML = t;
+        } else {
+          popUp.style.visibility = "hidden";
         }
-        move();
-      </script>
-    </body>
-
+      });
+      Events.on("setLife", function(nLife){ 
+          life.innerHTML = nLife;
+      });
+      Events.on("setMoney", function(nMoney){ 
+          money.innerHTML = nMoney;
+      });
+      Events.on("setEnemies", function(nEnemies){ 
+          enemies.innerHTML = nEnemies;
+      });
+      Events.on("setBullets", function(b){ 
+          bullets.innerHTML = b;
+      });
+    </script>
+  </body>
 </html>
-

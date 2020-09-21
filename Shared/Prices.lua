@@ -1,6 +1,6 @@
 -- You can change that too... But I do not recommend
 prices = {
-  pistol = {
+  Pistol = {
     100,
     200,
     300,
@@ -14,47 +14,51 @@ prices = {
     400,
     500
   },
-  shotgun = {
+  Shotgun = {
     100,
     200,
     300,
     400,
     500
   },
-  rifle = {
+  Rifle = {
     100,
     200,
     300,
     400,
     500
   },
-  catz = {
+  Catz = {
     100,
     200,
     300,
     400,
     500
   },
-  misc = {
+  Misc = {
     100,
     200,
     300,
     400,
     500
   },
-  explosive = {
+  Explosive = {
     100,
     200,
     300,
     400,
     500
   },
-  towers = {
+  Towers = {
     100,
     200,
     300,
     400,
     500
+  },
+  Game = {
+    0,
+    1000,
   },
 }
 

@@ -14,5 +14,6 @@ function initializeThings()
   end
 end
 
-initializeThings()
+-- TODO: Change this to enemy movement completed
+-- initializeThings()
 

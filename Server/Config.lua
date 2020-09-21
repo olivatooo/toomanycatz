@@ -1,6 +1,3 @@
-Package:Require("Prices.lua")
-
-
 -- ENEMY LOCATIONS
 enemySpawnerLocations = {
   Vector(900.0, -1380.0, 50.125122),
@@ -21,13 +18,14 @@ playerStartLocations = {
 shopColor = Color(1, 0, 0, 1)
 showShop = true 
 shopLocations = {
-  pistol = Trigger(Vector(2850.0, 4280.0, 100.0), 150, showShop, shopColor),
-  shotgun = Trigger(Vector(2850.0, 3750.0, 100.0), 150, showShop, shopColor),
-  rifle = Trigger(Vector(2850.0, 3290.0, 100.0), 150, showShop, shopColor),
+  Pistol = Trigger(Vector(2850.0, 4280.0, 100.0), 150, showShop, shopColor),
+  Shotgun = Trigger(Vector(2850.0, 3750.0, 100.0), 150, showShop, shopColor),
+  Rifle = Trigger(Vector(2850.0, 3290.0, 100.0), 150, showShop, shopColor),
   SMG = Trigger(Vector(2850.0, 2780.0, 100.0), 150, showShop, shopColor),
-  catz = Trigger(Vector(2850.0, 2270.0, 100.0), 150, showShop, shopColor),
-  misc = Trigger(Vector(3850.0, 3770.0, 100.0), 150, showShop, shopColor),
-  explosive = Trigger(Vector(3850.0, 2770.0, 100.0), 150, showShop, shopColor),
+  Catz = Trigger(Vector(2850.0, 2270.0, 100.0), 150, showShop, shopColor),
+  Misc = Trigger(Vector(3850.0, 3770.0, 100.0), 150, showShop, shopColor),
+  Explosive = Trigger(Vector(3850.0, 2770.0, 100.0), 150, showShop, shopColor),
+  Game = Trigger(Vector(3330.0, 6650.0, 100.0), 100, showShop, shopColor)
 }
 
 
@@ -38,6 +36,6 @@ end
 
 -- THINGS THAT NEED DEFENSE
 thingsThatNeedToBeDefended = {
-  Trigger(Vector(200.0, 5150.0, 800.0), 200, false, Color(1, 0, 0, 1)),
+  Vector(200.0, 5150.0, 800.0),
 }
 

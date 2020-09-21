@@ -1,4 +1,4 @@
--- Package:Require("Enemy/WaveGenerator.lua")
+Package:Require("Manager/Enemy/WaveGenerator.lua")
 
 
 -- Actual game state
@@ -24,28 +24,23 @@ end
 
 
 function gameCallNextWave(state)
+  print("Outside the if")
+  Events:Call("SpawnNextWave", {})
   if state == gameIdle_ or state == gamePause_ then
-    gameState = state 
-    Events:Call("SpawnNextWave", {})
+    gameState = state
+    print("Calling next wave")
   end
 end
 
 
 function changeGameState(state)
-
-  state = state and tonumber(state) or state
-
-  local case = {
-    [gameIdle_] = gameHalt(state),
-    [gamePause_] = gamePause(state),
-    [gameRunning_] = gameCallNextWave(state),
-    default = gameHalt(state),
-  }
-
-  if case[choice] then
-     case[choice]()
-  else
-     case["default"]()
+  print(state)
+  if state == gameIdle_ then
+    gameHalt(state)
+  elseif state == gamePause_ then
+    gamePause(state)
+  elseif state == gameRunning_ then
+    gameCallNextWave(state)
   end
 end
 

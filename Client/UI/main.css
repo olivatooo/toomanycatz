@@ -1,58 +1,63 @@
-#hp{
+#hp {
   position: absolute;
-  bottom:8;
-  left:8;
-  border-radius: 8px;
-  box-shadow: 2px 2px #666;
+  bottom: 32;
+  left: 8;
 }
 
-#myProgress {
-  width: 100%;
-  background-color: #ccc;
-  border-radius:0px 18px 0 18px;
-  box-shadow: 2px 2px #666;
+#status {
+  padding-left: 48%;
+  padding-right: 48%;
+  text-align: center;
+  display: inline;
 }
 
-#myBar {
-  width: 1%;
+#waveStatus {
   height: 18px;
-  background-color: #4caf50;
-  border-radius:0px 18px 0 18px;
 }
 
-#money{
+.leftBottomInfo {
   position: absolute;
-  bottom:8;
-  right:8;
-  border-radius: 8px;
-  box-shadow: 2px 2px #666;
+  bottom: 32;
+  right: 8;
+  display: inline;
+  max-width: 20%;
+}
+
+#bigPopup {
+  border: 0px solid black;
+  color: white;
+  height: 10% 10%;
+  margin-top: 8px;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .btn {
-  border: 2px solid black;
+  border: 0px solid black;
   color: black;
   padding: 8px 22px;
-  font-size: 18px;
+  margin-top: 8px;
+  font-size: 24px;
   cursor: pointer;
   font-weight: bold;
 }
 
 /* Green */
 .success {
-  border-color: #4CAF50;
-  color: white;
-  background-color: #4CAF50;
+  color: #fff;
+  background-color: rgba(1, 1, 1, 0.4);
+  border-radius: 2px;
 }
-
 
 /* Blue */
 .info {
-  border-color: #2196F3;
-  color: dodgerblue
+  border-color: #2196f3;
+  color: dodgerblue;
 }
 
 .info:hover {
-  background: #2196F3;
+  background: #2196f3;
   color: white;
 }
 
@@ -70,7 +75,7 @@
 /* Red */
 .danger {
   border-color: #f44336;
-  color: red
+  color: red;
 }
 
 .danger:hover {

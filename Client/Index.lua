@@ -1,4 +1,7 @@
-Package:Require("KeyHandler.lua")
+Package:Require("GUI.lua")
+
+isShopping = false
+shoppingOption = nil
 
 Events:on("SetMoney", function(amount)
   money = amount
@@ -18,8 +21,3 @@ Events:on("ShowScoreboard", function(characters)
   showScoreboard(characters)
 end)
 
-my_ui = WebUI(
-    "Awesome UI", 
-    "file:///UI/GUI.html", 
-    true 
-)
