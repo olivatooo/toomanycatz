@@ -13,6 +13,7 @@ Player:on("Spawn", function(player)
   player:Possess(char)
   initPlayer(player)
   numPlayers = numPlayers + 1
+
 end)
 
 

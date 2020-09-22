@@ -16,7 +16,7 @@ playerStartLocations = {
 
 -- SHOP LOCATIONS
 shopColor = Color(1, 0, 0, 1)
-showShop = true 
+showShop = false 
 shopLocations = {
   Pistol = Trigger(Vector(-1940.0, 110.0, 100.0), 150, showShop, shopColor),
   Shotgun = Trigger(Vector(2810.0, 4100.0, 100.0), 150, showShop, shopColor),
