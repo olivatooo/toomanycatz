@@ -37,24 +37,25 @@ end)
 
 Events:on("setLife", function(msg)
   -- Life (number only)
-  tmczUI:CallEvent("setLife", {true, msg})
+  tmczUI:CallEvent("setLife", {msg})
 end)
 
 
 Events:on("setMoney", function(msg)
   -- Money (number only)
-  tmczUI:CallEvent("setMoney", {true, msg})
+  Package:Log("MONEY" .. msg)
+  tmczUI:CallEvent("setMoney", {msg})
 end)
 
 
 Events:on("setEnemies", function(msg)
   -- Enemies (alives / total)
-  tmczUI:CallEvent("setEnemies", {true, msg})
+  tmczUI:CallEvent("setEnemies", {msg})
 end)
 
 
 Events:on("setBullets", function(msg)
   -- Bullets ( actual / total )
-  tmczUI:CallEvent("setBullets", {true, msg})
+  tmczUI:CallEvent("setBullets", {msg})
 end)
 

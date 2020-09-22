@@ -9,7 +9,7 @@ Player:on("Spawn", function(player)
   local initialLocation = getRandomFromList(playerStartLocations)
   local char = Character(initialLocation)
   char:SetTeam(playersTeam)
-  char:SetSpeedMultiplier(1.15)
+  char:SetSpeedMultiplier(1.25)
   player:Possess(char)
   initPlayer(player)
   numPlayers = numPlayers + 1
@@ -29,7 +29,7 @@ Events:on("RestartGame", function(player)
 end)
 
 
-Events:on("StartGame", function(player)
+Events:on("StartGame", function()
   startGame()
 end)
 

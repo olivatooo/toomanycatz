@@ -8,5 +8,5 @@
 	force_no_map_script =	false
 	# Asset Packs Requirements
 	assets_requirements = [
-		
+		"tmpz",
 	]

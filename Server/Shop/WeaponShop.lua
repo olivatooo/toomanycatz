@@ -26,6 +26,8 @@ function handleBuy(player, option, idx)
     TmpzWeapons.SMGTier(player:GetControlledCharacter():GetLocation(), Rotator(), idx)
   elseif option == "Catz" then
     TmpzWeapons.CatzTier(player:GetControlledCharacter():GetLocation(), Rotator(), idx)
+  elseif option == "Game" then
+    Events:Call("StartGame", {})
   else
     Events:CallRemote("showMessage", player, {"Uuuh", "how can I say that", "something went"," wrong"})
     return 
@@ -40,11 +42,11 @@ Events:on("Buy", function(player, option, idx)
   pMoney = player:GetValue("bank")
   rMoney = pMoney - iPrice
   if rMoney >= 0 then
-    player:SetValue("money", rMoney)
+    player:SetValue("bank", rMoney)
     handleBuy(player, option, idx)
-    Events:CallRemote("Bought", player, {"Success"})
+    Events:CallRemote("setMoney", player, {rMoney})
   else
-    Events:CallRemote("Bought", player, {"Fail"})
+    Events:CallRemote("showMessage", player, {"You","Don't","Have","Money"})
   end
 end)
 

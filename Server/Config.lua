@@ -1,7 +1,7 @@
 -- ENEMY LOCATIONS
 enemySpawnerLocations = {
-  Vector(900.0, -1380.0, 50.125122),
-  Vector(-400.0, -1280.0, 50.125122)
+  Vector(900.0, -1380.0, 200.0),
+  Vector(-400.0, -1280.0, 200.0)
 }
 
 
@@ -18,13 +18,11 @@ playerStartLocations = {
 shopColor = Color(1, 0, 0, 1)
 showShop = true 
 shopLocations = {
-  Pistol = Trigger(Vector(2850.0, 4280.0, 100.0), 150, showShop, shopColor),
-  Shotgun = Trigger(Vector(2850.0, 3750.0, 100.0), 150, showShop, shopColor),
-  Rifle = Trigger(Vector(2850.0, 3290.0, 100.0), 150, showShop, shopColor),
-  SMG = Trigger(Vector(2850.0, 2780.0, 100.0), 150, showShop, shopColor),
-  Catz = Trigger(Vector(2850.0, 2270.0, 100.0), 150, showShop, shopColor),
-  Misc = Trigger(Vector(3850.0, 3770.0, 100.0), 150, showShop, shopColor),
-  Explosive = Trigger(Vector(3850.0, 2770.0, 100.0), 150, showShop, shopColor),
+  Pistol = Trigger(Vector(-1940.0, 110.0, 100.0), 150, showShop, shopColor),
+  Shotgun = Trigger(Vector(2810.0, 4100.0, 100.0), 150, showShop, shopColor),
+  Rifle = Trigger(Vector(2850.0, -1710.0, 100.0), 150, showShop, shopColor),
+  SMG = Trigger(Vector(-960.0, 4665.0, 100.0), 150, showShop, shopColor),
+  Catz = Trigger(Vector(2810.0, 2180.0, 100.0), 150, showShop, shopColor),
   Game = Trigger(Vector(3330.0, 6650.0, 100.0), 100, showShop, shopColor)
 }
 

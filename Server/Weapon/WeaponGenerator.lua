@@ -403,11 +403,11 @@ end
 
 function Catz(Location, Rotation, tier)
 	local model = nil
- local trail = nil
- local barrel = nil
- local shell = nil
- local shot_sound = nil
- local magazine_mesh = nil
+   local trail = nil
+   local barrel = nil
+   local shell = nil
+   local shot_sound = nil
+   local magazine_mesh = nil
 	local ammo_in_clip = 0
 	local clip_capacity = 0
 	local base_damage = 0
@@ -419,8 +419,8 @@ function Catz(Location, Rotation, tier)
 	local cadence = 0
 
   if tier == 1 then
-    base_damage = math.random (1, 2)
-    cadence = randomFloat(0.18, 0.2)
+    base_damage = math.random (1000, 2000)
+    cadence = randomFloat(0.1, 0.1)
     bullet_count = 1
     ammo_in_clip = math.random(12, 23)
     clip_capacity = ammo_in_clip
@@ -428,7 +428,7 @@ function Catz(Location, Rotation, tier)
   end
   if tier == 2 then
     base_damage = math.random (2, 4)
-    cadence = randomFloat(0.16, 0.18)
+    cadence = randomFloat(0.05, 0.09)
     bullet_count = 1
     ammo_in_clip = math.random(18, 32)
     clip_capacity = ammo_in_clip
@@ -464,7 +464,7 @@ function Catz(Location, Rotation, tier)
   return Weapon(
     Location,
     Rotation,
-    "NanosWorld::SM_Bunny",	-- Model
+    "NanosWorld::SK_Tie",	-- Model
     0,						-- Collision (Normal)
     true,					-- Gravity Enabled
     ammo_in_clip,						-- Ammo in the Clip
@@ -487,9 +487,9 @@ function Catz(Location, Rotation, tier)
     cadence,					-- Cadence (1 shot at each 0.15seconds)
     true,					-- Can Hold Use (keep pressing to keep firing, common to automatic weapons)
     false,					-- Need to release to Fire (common to Bows)
-    "NanosWorld::SM_Bunny",							-- Bullet Trail Particle
-    "NanosWorld::SM_Bunny",						-- Barrel Particle
-    "NanosWorld::SM_Bunny",					-- Shells Particle
+    "NanosWorld::P_Bullet_Trail",							-- Bullet Trail Particle
+    "NanosWorld::P_Weapon_BarrelSmoke",						-- Barrel Particle
+    "NanosWorld::P_Weapon_Shells_762x39",					-- Shells Particle
     "NanosWorld::A_Rifle_Dry",								-- Weapon's Dry Sound
     "NanosWorld::A_Rifle_Load",								-- Weapon's Load Sound
     "NanosWorld::A_Rifle_Unload",							-- Weapon's Unload Sound
@@ -498,7 +498,7 @@ function Catz(Location, Rotation, tier)
     "NanosWorld::A_AK47_Shot",								-- Weapon's Shot Sound
     "NanosWorld::AM_Mannequin_Reload_Rifle",				-- Character's Reloading Animation
     "NanosWorld::AM_Mannequin_Sight_Fire",					-- Character's Aiming Animation
-    "NanosWorld::SM_Bunny"							-- Magazine Mesh
+    "tmpz::SM_Cat"							-- Magazine Mesh
   )
 end
 
@@ -516,6 +516,16 @@ TmpzWeapons = {
     return generate_smg(Location, Rotation, Tier)
   end,
   CatzTier = function(Location, Rotation, Tier)
-    return Catz(Location, Rotation, Tier)
+    my_weap = Catz(Location, Rotation, Tier)
+    my_weap:on("Fire", function(shooter)
+        local control_rotation = shooter:GetControlRotation()
+        local forward_vector = control_rotation:GetForwardVector()
+        local spawn_location = shooter:GetLocation() + Vector(0, 0, 20) + forward_vector * Vector(200)
+
+        local prop = Prop(spawn_location, control_rotation, "tmpz::SM_Cat", 1)
+        prop:SetScale(Vector(randomFloat(1,3),randomFloat(1,3),randomFloat(1,3)))
+        prop:AddImpulse(forward_vector * Vector(20000))
+    end)
+    return my_weap
   end,
 }

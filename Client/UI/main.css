@@ -4,6 +4,9 @@
   left: 8;
 }
 
+* {
+}
+
 #status {
   padding-left: 48%;
   padding-right: 48%;
@@ -28,7 +31,7 @@
   color: white;
   height: 10% 10%;
   margin-top: 8px;
-  font-size: 24px;
+  font-size: 32px;
   cursor: pointer;
   font-weight: bold;
 }

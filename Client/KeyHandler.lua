@@ -18,9 +18,6 @@ end
 
 Client:on("KeyUp", function(KeyName, _, _)
     -- TODO: Create the cycle shop options based in the Prices.lua
-    if (KeyName == "B") and isShopping == true and shoppingOption == "Game" then
-      Events:CallRemote("StartGame", {})
-    end
     if (KeyName == "B") and isShopping == true then
       Events:CallRemote("Buy", {shoppingOption, option})
     end

@@ -16,20 +16,14 @@ end
 
 
 function gamePause(state)
-  if state == gameRunning_ then
-    gameState = state
-    Events:on("PauseBetweenWaves", {})
-  end
+  gameState = state
+  Events:Call("PauseBetweenWaves", {})
 end
 
 
 function gameCallNextWave(state)
-  print("Outside the if")
   Events:Call("SpawnNextWave", {})
-  if state == gameIdle_ or state == gamePause_ then
-    gameState = state
-    print("Calling next wave")
-  end
+  gameState = state
 end
 
 
@@ -55,7 +49,7 @@ end
 
 
 function restartGame()
-  for k,v in pairs(Character) do
+  for k,v in pairs(Player) do
     initPlayer(v)
   end
   changeGameState(gameRunning_)
