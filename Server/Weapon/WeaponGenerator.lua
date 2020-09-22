@@ -18,42 +18,42 @@ function generate_smg(Location, Rotation, tier)
   local cadence = 0
 
   if tier == 1 then
-    base_damage = 1
-    cadence = randomFloat(0.12, 0.14)
+    base_damage = math.random (1, 2)
+    cadence = randomFloat(0.5, 0.6)
     bullet_count = 1
-    ammo_in_clip = math.random(26, 30)
+    ammo_in_clip = math.random(22, 32)
     clip_capacity = ammo_in_clip
     spread = math.random (50, 60)
   end
   if tier == 2 then
-    base_damage = math.random (2, 3)
-    cadence = randomFloat(0.1, 0.12)
+    base_damage = math.random (1, 2)
+    cadence = randomFloat(0.4, 0.5)
     bullet_count = 1
-    ammo_in_clip = math.random(38, 50)
+    ammo_in_clip = math.random(32, 64)
     clip_capacity = ammo_in_clip
     spread = math.random (40, 50)
   end
   if tier == 3 then
-    base_damage = math.random (3, 4)
-    cadence = randomFloat(0.1, 0.11)
+    base_damage = math.random (1, 2)
+    cadence = randomFloat(0.3, 0.4)
     bullet_count = 1
-    ammo_in_clip = math.random(50, 70)
+    ammo_in_clip = math.random(64, 128)
     clip_capacity = ammo_in_clip
     spread = math.random (30, 40)
   end
   if tier == 4 then
-    base_damage = math.random (4, 8)
-    cadence = randomFloat(0.09, 0.1)
+    base_damage = math.random (1, 2)
+    cadence = randomFloat(0.2, 0.3)
     bullet_count = 1
-    ammo_in_clip = math.random(70, 120)
+    ammo_in_clip = math.random(128, 256)
     clip_capacity = ammo_in_clip
     spread = math.random (20, 30)
   end
   if tier == 5 then
-    base_damage = math.random (8, 12)
-    cadence = randomFloat(0.06, 0.09)
+    base_damage = math.random (2, 4)
+    cadence = randomFloat(0.1, 0.2)
     bullet_count = 1
-    ammo_in_clip = math.random(120, 160)
+    ammo_in_clip = math.random(256, 512)
     clip_capacity = ammo_in_clip
     spread = math.random (10, 20)
   end
@@ -111,7 +111,7 @@ function generate_pistol(Location, Rotation, tier)
   local ammo_in_clip = 0
   local clip_capacity = 0
   local base_damage = 0
-  local spread = 0
+  local spread = 1
   local bullet_count = 0
   local ammo_to_reload = 0
   local bullet_color = nil
@@ -120,39 +120,39 @@ function generate_pistol(Location, Rotation, tier)
   spread = math.random (1, 20)
 
   if tier == 1 then
-    base_damage = math.random (1, 20)
-    cadence = randomFloat(0.8, 1)
+    base_damage = math.random (1, 3)
+    cadence = randomFloat(1, 1)
     bullet_count = 1
-    ammo_in_clip = math.random(7, 8)
+    ammo_in_clip = math.random(7, 20)
     clip_capacity = ammo_in_clip
   end
   if tier == 2 then
-    base_damage = math.random (20, 50)
-    cadence = randomFloat(0.7, 0.8)
+    base_damage = math.random(4, 8)
+    cadence = randomFloat(0.9, 1)
     bullet_count = 1
-    ammo_in_clip = math.random(8, 9)
+    ammo_in_clip = math.random(7, 22)
     clip_capacity = ammo_in_clip
   end
   if tier == 3 then
-    base_damage = math.random (50, 100)
-    cadence = randomFloat(0.6, 0.7)
+    base_damage = math.random (10, 28)
+    cadence = randomFloat(0.8, 0.9)
     bullet_count = 1
-    ammo_in_clip = math.random(9, 10)
+    ammo_in_clip = math.random(7, 24)
     clip_capacity = ammo_in_clip
   end
   if tier == 4 then
-    base_damage = math.random (100, 150)
-    cadence = randomFloat(0.5, 0.6)
+    base_damage = math.random (32, 64)
+    cadence = randomFloat(0.7, 0.8)
     bullet_count = 1
-    ammo_in_clip = math.random(11, 12)
+    ammo_in_clip = math.random(7, 32)
     clip_capacity = ammo_in_clip
   end
   if tier == 5 then
-    base_damage = math.random (150, 200)
-    cadence = randomFloat(0.4, 0.5)
+    base_damage = math.random (70, 100)
+    cadence = randomFloat(0.6, 0.7)
     bullet_count = math.random(2, 4)
     spread = spread * bullet_count
-    ammo_in_clip = math.random(10, 20)
+    ammo_in_clip = math.random(7, 100)
     clip_capacity = ammo_in_clip
   end
  
@@ -217,47 +217,47 @@ function generate_shotgun(Location, Rotation, tier)
 	local cadence = 0
 
   if tier == 1 then
-    base_damage = math.random (2, 4)
-    cadence = randomFloat(1, 1.5)
-    bullet_count = math.random(6, 12)
+    base_damage = math.random (3, 5)
+    cadence = randomFloat(1, 1)
+    bullet_count = math.random(6, 9)
     ammo_in_clip = bullet_count
     clip_capacity = ammo_in_clip
     spread = math.random (70, 80)
   end
   if tier == 2 then
-    base_damage = math.random (4, 8)
-    cadence = randomFloat(0.9, 1.2)
-    bullet_count = math.random(12, 24)
+    base_damage = math.random (5, 12)
+    cadence = randomFloat(0.8, 0.9)
+    bullet_count = math.random(8, 12)
     ammo_in_clip = bullet_count
     clip_capacity = ammo_in_clip
     spread = math.random (80, 100)
   end
   if tier == 3 then
-    base_damage = math.random (8, 12)
-    cadence = randomFloat(0.8, 1.1)
-    bullet_count = math.random(24, 48)
+    base_damage = math.random (12, 15)
+    cadence = randomFloat(0.7, 0.8)
+    bullet_count = math.random(10, 18)
     ammo_in_clip = bullet_count
     clip_capacity = ammo_in_clip
     spread = math.random (100, 140)
   end
   if tier == 4 then
-    base_damage = math.random (12, 16)
-    cadence = randomFloat(0.8, 1)
-    bullet_count = math.random(48, 64)
+    base_damage = math.random (15, 18)
+    cadence = randomFloat(0.5 , 0.6)
+    bullet_count = math.random(20, 22)
     ammo_in_clip = bullet_count
     clip_capacity = ammo_in_clip
     spread = math.random (140, 200)
   end
   if tier == 5 then
-    base_damage = math.random (16, 24)
-    cadence = randomFloat(0.5, 1.5)
-    bullet_count = math.random(64, 80)
+    base_damage = math.random (18, 20)
+    cadence = randomFloat(0.5 , 0.6)
+    bullet_count = math.random(32, 44)
     ammo_in_clip = bullet_count
     clip_capacity = ammo_in_clip
     spread = math.random (200, 300)
   end
   
-  bullet_color = Color(1.5-cadence, ammo_in_clip/100 , bullet_count/80)
+  bullet_color = Color(1.5-cadence, ammo_in_clip/100 , bullet_count/44)
  
   return Weapon(
     Location,
@@ -318,42 +318,42 @@ function generate_rifle(Location, Rotation, tier)
 	local cadence = 0
 
   if tier == 1 then
-    base_damage = math.random (1, 2)
-    cadence = randomFloat(0.18, 0.2)
+    base_damage = math.random (5, 8)
+    cadence = randomFloat(0.3, 0.4)
     bullet_count = 1
-    ammo_in_clip = math.random(12, 23)
+    ammo_in_clip = math.random(30, 42)
     clip_capacity = ammo_in_clip
     spread = math.random (40, 50)
   end
   if tier == 2 then
-    base_damage = math.random (2, 4)
-    cadence = randomFloat(0.16, 0.18)
+    base_damage = math.random (8, 20)
+    cadence = randomFloat(0.3, 0.4)
     bullet_count = 1
-    ammo_in_clip = math.random(18, 32)
+    ammo_in_clip = math.random(42, 52)
     clip_capacity = ammo_in_clip
     spread = math.random (35, 45)
   end
   if tier == 3 then
-    base_damage = math.random (4, 8)
-    cadence = randomFloat(0.14, 0.16)
+    base_damage = math.random (24, 32)
+    cadence = randomFloat(0.2, 0.3)
     bullet_count = 1
-    ammo_in_clip = math.random(28, 40)
+    ammo_in_clip = math.random(52, 64)
     clip_capacity = ammo_in_clip
     spread = math.random (30, 36)
   end
   if tier == 4 then
-    base_damage = math.random (8, 16)
+    base_damage = math.random (50, 80)
     cadence = randomFloat(0.18, 0.2)
     bullet_count = 1
-    ammo_in_clip = math.random(12, 23)
+    ammo_in_clip = math.random(64, 70)
     clip_capacity = ammo_in_clip
     spread = math.random (20, 30)
   end
   if tier == 5 then
-    base_damage = math.random (16, 32)
+    base_damage = math.random (100, 200)
     cadence = randomFloat(0.1, 0.12)
     bullet_count = 1
-    ammo_in_clip = math.random(40, 64)
+    ammo_in_clip = math.random(70, 100)
     clip_capacity = ammo_in_clip
     spread = math.random (1, 20)
   end
@@ -419,26 +419,26 @@ function Catz(Location, Rotation, tier)
 	local cadence = 0
 
   if tier == 1 then
-    base_damage = math.random (1000, 2000)
+    base_damage = math.random (2, 10)
     cadence = randomFloat(0.1, 0.1)
-    bullet_count = 1
-    ammo_in_clip = math.random(12, 23)
+    bullet_count = math.random (6, 10)
+    ammo_in_clip = math.random(100, 1000)
     clip_capacity = ammo_in_clip
-    spread = math.random (40, 50)
+    spread = math.random (120, 160)
   end
   if tier == 2 then
-    base_damage = math.random (2, 4)
-    cadence = randomFloat(0.05, 0.09)
+    base_damage = math.random (1000, 2000)
+    cadence = randomFloat(1, 1)
     bullet_count = 1
-    ammo_in_clip = math.random(18, 32)
+    ammo_in_clip = math.random(7, 14)
     clip_capacity = ammo_in_clip
-    spread = math.random (35, 45)
+    spread = 1
   end
   if tier == 3 then
-    base_damage = math.random (4, 8)
-    cadence = randomFloat(0.14, 0.16)
+    base_damage = math.random (1000, 2000)
+    cadence = randomFloat(0.2, 0.4)
     bullet_count = 1
-    ammo_in_clip = math.random(28, 40)
+    ammo_in_clip = math.random(22, 32)
     clip_capacity = ammo_in_clip
     spread = math.random (30, 36)
   end
@@ -451,12 +451,12 @@ function Catz(Location, Rotation, tier)
     spread = math.random (20, 30)
   end
   if tier == 5 then
-    base_damage = math.random (16, 32)
-    cadence = randomFloat(0.1, 0.12)
+    base_damage = math.random (50000,100000)
+    cadence = randomFloat(1, 1)
     bullet_count = 1
-    ammo_in_clip = math.random(40, 64)
+    ammo_in_clip = math.random(1, 1)
     clip_capacity = ammo_in_clip
-    spread = math.random (1, 20)
+    spread = math.random (1, 1)
   end
  
   bullet_color = Color(1-cadence, ammo_in_clip/100 , bullet_count)
@@ -464,7 +464,7 @@ function Catz(Location, Rotation, tier)
   return Weapon(
     Location,
     Rotation,
-    "NanosWorld::SK_Tie",	-- Model
+    "tmpz::SK_Wolf",	-- Model
     0,						-- Collision (Normal)
     true,					-- Gravity Enabled
     ammo_in_clip,						-- Ammo in the Clip
@@ -495,7 +495,7 @@ function Catz(Location, Rotation, tier)
     "NanosWorld::A_Rifle_Unload",							-- Weapon's Unload Sound
     "NanosWorld::A_AimZoom",								-- Weapon's Zooming Sound
     "NanosWorld::A_Rattle",									-- Weapon's Aiming Sound
-    "NanosWorld::A_AK47_Shot",								-- Weapon's Shot Sound
+    "tmpz::S_Meow",								-- Weapon's Shot Sound
     "NanosWorld::AM_Mannequin_Reload_Rifle",				-- Character's Reloading Animation
     "NanosWorld::AM_Mannequin_Sight_Fire",					-- Character's Aiming Animation
     "tmpz::SM_Cat"							-- Magazine Mesh
@@ -520,11 +520,25 @@ TmpzWeapons = {
     my_weap:on("Fire", function(shooter)
         local control_rotation = shooter:GetControlRotation()
         local forward_vector = control_rotation:GetForwardVector()
-        local spawn_location = shooter:GetLocation() + Vector(0, 0, 20) + forward_vector * Vector(200)
+        local spawn_location = shooter:GetLocation() + Vector(0, 0, 40) + forward_vector * Vector(200)
 
-        local prop = Prop(spawn_location, control_rotation, "tmpz::SM_Cat", 1)
+        local prop = Grenade(
+          spawn_location,
+          control_rotation,
+          "tmpz::SM_Cat"
+        )
         prop:SetScale(Vector(randomFloat(1,3),randomFloat(1,3),randomFloat(1,3)))
         prop:AddImpulse(forward_vector * Vector(20000))
+
+        Timer:SetTimeout(1500, function (c)
+          if math.random (10, 100) < 10 then
+            c:PullUse()
+          else
+            c:Destroy()
+          end
+          return false
+        end, {prop})
+
     end)
     return my_weap
   end,

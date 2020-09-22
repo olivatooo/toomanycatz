@@ -23,10 +23,22 @@ Client:on("KeyUp", function(KeyName, _, _)
     end
     if (KeyName == "E") and isShopping == true then
       cyclePrices(true)
-      Events:Call("showMessage", {"Store", tostring(shoppingOption), "", prices[shoppingOption][option]})
+      Events:Call("showMessage", {"Store", tostring(shoppingOption), tostring(prices[shoppingOption][0]), "Price: $" .. tostring(prices[shoppingOption][option])})
     end
     if (KeyName == "Q") and isShopping == true then
       cyclePrices(false)
-      Events:Call("showMessage", {"Store", tostring(shoppingOption), "", prices[shoppingOption][option]})
+      Events:Call("showMessage", {"Store", tostring(shoppingOption), tostring(prices[shoppingOption][0]), "Price: $" .. tostring(prices[shoppingOption][option])})
     end
+    if KeyName == "H" then
+      Events:Call("showWeaponInfo", {false})
+    end
+    if KeyName == "Z" then
+      Events:CallRemote("rockTheVote", {})
+    end
+end)
+
+Client:on("KeyDown", function(KeyName,_,_)
+   if KeyName == "H" then
+    Events:Call("showWeaponInfo", {true})
+   end
 end)

@@ -3,15 +3,15 @@ Package:Require("Manager/Enemy/EnemyGenerator.lua")
 
 local wave = 0 
 local spawnedEnemies = 0
-local pauseTime = 20
 local killedEnemies = 0
-
+pt = 60
 
 Events:on("SpawnNextWave", function ()
   generateBudget(wave+1)
+  -- Events:BroadcastRemote("ChangeGameMusic", {false})
   Timer:SetTimeout(1000, function ()
     getNextEnemy(wave)
-    Events:BroadcastRemote("setEnemies", {10+wave-killedEnemies})
+    Events:BroadcastRemote("setEnemies", {"Wave " .. wave+1 .. "-" ..10+wave-killedEnemies})
     if spawnedEnemies == 10 + wave then
       spawnedEnemies = 0
       wave = wave + 1
@@ -23,12 +23,17 @@ end)
 
 
 Events:on("PauseBetweenWaves", function ()
-  local pt = pauseTime
-  print("pausing")
+
+  -- Events:BroadcastRemote("ChangeGameMusic", {true})
+
+  for k,v in pairs(Player) do
+    v:SetValue("rtv", false)
+  end
+
+  pt = 60
   Timer:SetTimeout(1000, function ()
+    Events:BroadcastRemote("setEnemies", {pt ..  "s - Press Z to Skip"})
     pt = pt - 1
-    -- TODO: Announce Wave
-    Events:BroadcastRemote("setEnemies", {pt .. "s"})
     if pt == 0 then
       changeGameState(gameRunning_)
       return false
@@ -53,6 +58,9 @@ end
 
 function rewardPlayers(c)
   local amount = c:GetValue("Reward")
+  if amount == nil then
+    amount = 0
+  end
   for k,v in pairs(Player) do
     v:SetValue("bank", v:GetValue("bank")+amount)
     print(amount .. " " .. v:GetValue("bank"))
@@ -65,7 +73,7 @@ Character:on("Death", function(character)
   rewardPlayers(character)
   cleanupBodiesInTheScene(character)
   killedEnemies = killedEnemies + 1
-  Events:BroadcastRemote("setEnemies", {10+wave-killedEnemies})
+  Events:BroadcastRemote("setEnemies", {"Wave " .. wave+1 .. "-" ..10+wave-killedEnemies})
   if killedEnemies == 10 + wave then
     killedEnemies = 0
     changeGameState(gamePause_)

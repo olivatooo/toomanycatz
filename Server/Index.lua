@@ -23,6 +23,18 @@ Player:on("UnPossess", function(player, character, isPlayerDisconnecting)
   end
 end)
 
+Events:on("rockTheVote", function(player)
+  player:SetValue("rtv", true)
+  all = true
+  for k,v in pairs(Player) do
+    if v:GetValue("rtv") == false then
+      all = false
+    end
+  end
+  if all == true then
+    pt = 1
+  end
+end)
 
 Events:on("RestartGame", function(player) 
   restartGame() 

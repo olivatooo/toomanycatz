@@ -8,9 +8,10 @@ tmczUI = WebUI(
 
 
 Events:on("EnterShop", function(shopOption) 
+  Package:Log("Entered Shop")
   isShopping = true
   shoppingOption = shopOption
-  Events:Call("showMessage", {"Store", tostring(shopOption), "", prices[shopOption][option]})
+  Events:Call("showMessage", {"Store", tostring(shopOption), tostring(prices[shopOption][0]), "Price: $" .. tostring(prices[shopOption][option])})
 end)
 
 

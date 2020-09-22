@@ -4,7 +4,7 @@ Package:Require("Manager/Enemy/EnemyAI.lua")
 local budget = 0
 
 function generateBudget(wave)
-  budget = directorMoney[wave]
+  budget = directorMoney[wave]*#Player
 end
 
 function getNextEnemy(wave)
@@ -19,7 +19,6 @@ function getNextEnemy(wave)
  
   for k,v in pairs(enemyPrice) do
     if math.random(100) < v[1] then
-      print("budget  " .. tostring(budget))
       if budget > 0 then
         local spentBudget = math.random(budget)
         budget = budget - spentBudget

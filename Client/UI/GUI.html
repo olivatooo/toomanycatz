@@ -1,15 +1,16 @@
 <html>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta content="utf-8" http-equiv="encoding" />
   <head>
     <link rel="stylesheet" href="main.css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet"> 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <button id="hp" class="btn success">
-      <i class="fas fa-heartbeat"></i>&nbsp;
-      <span id="life">0</span>
-    </button>
 
     <div id="waveStatus">
       <div id="status">
@@ -19,31 +20,71 @@
         </button>
       </div>
     </div>
+    <div class="weaponInfo btn success" id="wpI">
+      <i
+        class="fas fa-exclamation-circle"
+        aria-hidden="true"
+        style="position: relative; left: -18px"
+      ></i>
 
+      <span id="" style="font-family: 'Satisfy', cursive; margin-left: 0px"
+        >Weapon Information</span
+      >
+      <br />
+
+      <br />
+      <span id="" style="font-size: 18px">
+        <div>
+          Damage → <span id="wepDamage" style="font-size: 18px">100</span>
+        </div>
+        <div>
+          Cadence → <span id="wepCadence" style="font-size: 18px">100</span>
+        </div>
+        <div>
+          Bullets per Shot →
+          <span id="wepBullet" style="font-size: 18px">100</span>
+        </div>
+        <div>
+          Spread → <span id="wepSpread" style="font-size: 18px">100</span>
+        </div>
+        <div>
+          Clip Size → <span id="wepBullet" style="font-size: 18px">100</span>
+        </div>
+      </span>
+    </div>
     <button id="bigPopup" class="btn success" style="max-width: 300px">
       <i
         class="fas fa-cat"
         aria-hidden="true"
-        style="position: fixed; 
-        left: 18px;
-        padding-right: 16px;"
+        style="position: fixed; left: 18px; padding-right: 16px"
       ></i>
-      <span id="popUpTitle" style="font-family: 'Satisfy', cursive; margin-left:32px;">Too Many Catz</span>
-      <div id="popUpSubtitle" style="font-size: 20px">Welcome to the best tower defense!</div>
+      <span
+        id="popUpTitle"
+        style="font-family: 'Satisfy', cursive; margin-left: 32px"
+        >Too Many Catz</span
+      >
+      <div id="popUpSubtitle" style="font-size: 20px">Welcome!</div>
 
       <div id="popUpInfo" style="font-size: 18px">
-        Buy weapons<br>
-        Protect that shiny thing<br>
-        Survive until wave 100<br>
+        Buy weapons<br />
+        Protect that shiny thing<br />
+        Survive until wave 100<br />
       </div>
-      <div id="popUpFooter" style="font-size: 16px">"But... Where are the cats?" - Nyakuza</div>
+      <br />
+      <div id="popUpFooter" style="font-size: 16px">
+        "But... Where are the cats?"
+      </div>
     </button>
 
     <div class="leftBottomInfo">
-      <button id="bullets" class="btn success">&nbsp;0/0</button>
+      <button id="hp" class="btn success">
+        <i class="fas fa-heartbeat"></i>&nbsp;
+        <span id="life">0</span>
+      </button>
+      <!--<button id="bullets" class="btn success">&nbsp;0/0</button>-->
       <button id="money" class="btn success">
         <i class="fas fa-money-bill-wave"></i>&nbsp;
-        <span id="money">0</span>
+        <span id="moneyVal">0</span>
       </button>
     </div>
     <script>
@@ -52,7 +93,6 @@
       var popUpSubtitle = document.getElementById("popUpSubtitle");
       var popUpInfo = document.getElementById("popUpInfo");
       var popUpFooter = document.getElementById("popUpFooter");
-      // popUp.style.visibility = "hidden";
       // Received event
       // Title, Subtitle, Information, Footer
       Events.on("showPopup", function (showPop, t, s, i, f) {
@@ -72,7 +112,7 @@
         life.innerHTML = nLife;
       });
 
-      var money = document.getElementById("money");
+      var money = document.getElementById("moneyVal");
       Events.on("setMoney", function (nMoney) {
         money.innerHTML = nMoney;
       });
@@ -82,9 +122,20 @@
         enemies.innerHTML = nEnemies;
       });
 
-      var bullets = document.getElementById("bullets");
-      Events.on("setBullets", function (b) {
-        bullets.innerHTML = b;
+      var wepInfo = document.getElementById("wpI");
+      var wepDamage = document.getElementById("wepDamage");
+      var wepCadence = document.getElementById("wepCadence");
+      var wepSpread = document.getElementById("wepSpread");
+      wepInfo.style.visibility = "hidden";
+      Events.on("showWeaponInfo", function (showPop, dmg, cad, spr, bul) {
+        if (showPop == true) {
+          wepInfo.style.visibility = "visible";
+          wepDamage.innerHTML = dmg;
+          wepCadence.innerHTML = cad;
+          wepSpread.innerHTML = spr;
+        } else {
+          wepInfo.style.visibility = "hidden";
+        }
       });
     </script>
   </body>

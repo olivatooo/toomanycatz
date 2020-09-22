@@ -28,7 +28,6 @@ end
 
 
 function changeGameState(state)
-  print(state)
   if state == gameIdle_ then
     gameHalt(state)
   elseif state == gamePause_ then
